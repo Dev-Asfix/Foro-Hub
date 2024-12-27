@@ -8,10 +8,14 @@ import lombok.*;
 @Table(name = "perfiles")
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Perfil {
+
+    public Perfil(){
+
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

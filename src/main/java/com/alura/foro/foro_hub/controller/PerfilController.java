@@ -6,12 +6,12 @@ import com.alura.foro.foro_hub.domain.perfil.Perfil;
 import com.alura.foro.foro_hub.domain.perfil.PerfilRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
@@ -31,4 +31,12 @@ public class PerfilController {
         return ResponseEntity.created(uri).body(new DatosDetallePerfil(perfil));
 
     }
+
+    @GetMapping
+    public ResponseEntity<Page<DatosDetallePerfil>> listar(@PageableDefault(page = 0, size = 10 )Pageable paginacion){
+        var page = perfilRepository.findAll(paginacion).map(DatosDetallePerfil::new);
+        return ResponseEntity.ok(page);
+    }
+
+
 }
