@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Table(name = "topicos")
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Topico {
@@ -33,6 +33,10 @@ public class Topico {
     @ManyToOne
     @JoinColumn(name = "curso_id")
     private Curso curso;
+
+    public Topico(){
+
+    }
 
     public Topico(DatosRegistroTopico datos, Usuario autor, Curso curso){
         this.titulo = datos.titulo();
