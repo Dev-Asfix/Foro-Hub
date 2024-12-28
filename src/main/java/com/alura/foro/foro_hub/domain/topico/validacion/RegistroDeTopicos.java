@@ -1,7 +1,11 @@
-package com.alura.foro.foro_hub.domain.topico;
+package com.alura.foro.foro_hub.domain.topico.validacion;
 
 import com.alura.foro.foro_hub.domain.curso.Curso;
 import com.alura.foro.foro_hub.domain.curso.CursoRepository;
+import com.alura.foro.foro_hub.domain.topico.DatosDetalleTopico;
+import com.alura.foro.foro_hub.domain.topico.DatosRegistroTopico;
+import com.alura.foro.foro_hub.domain.topico.Topico;
+import com.alura.foro.foro_hub.domain.topico.TopicoRepository;
 import com.alura.foro.foro_hub.domain.usuario.Usuario;
 import com.alura.foro.foro_hub.domain.usuario.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
