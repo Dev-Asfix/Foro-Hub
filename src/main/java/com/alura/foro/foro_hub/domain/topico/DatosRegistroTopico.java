@@ -11,10 +11,7 @@ public record DatosRegistroTopico(
         String titulo,
         @NotBlank
         String mensaje,
-        @NotNull
-        LocalDateTime fecha_creacion,
-        @NotBlank
-        String status,
+
         @NotNull
         Long autor,
         @NotNull
