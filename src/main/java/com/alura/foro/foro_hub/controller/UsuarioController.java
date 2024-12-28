@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -29,7 +30,8 @@ public class UsuarioController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity registrar(@RequestBody @Valid DatosRegistroUsuario datos){
+    public ResponseEntity registrar(@RequestBody @Valid DatosRegistroUsuario datos,
+                                    UriComponentsBuilder uriComponentsBuilder){
         var perfil = perfilRepository.findById(datos.idPerfil())
                 .orElseThrow(()-> new RuntimeException("Perfil no encontrado"));
 
@@ -39,7 +41,9 @@ public class UsuarioController {
         usuarioRepository.save(usuario);
 
         var datosDetalleUser = new DatosDetalleUsuario(usuario);
-        return ResponseEntity.status(HttpStatus.CREATED).body(datosDetalleUser);
+        //return ResponseEntity.status(HttpStatus.CREATED).body(datosDetalleUser);
+        var uri = uriComponentsBuilder.path("/cursos/{id}").buildAndExpand(usuario.getId()).toUri();
+        return ResponseEntity.created(uri).body(datosDetalleUser);
 
     }
 

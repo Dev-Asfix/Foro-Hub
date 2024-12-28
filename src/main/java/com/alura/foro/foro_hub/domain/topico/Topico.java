@@ -33,5 +33,12 @@ public class Topico {
     @JoinColumn(name = "curso_id")
     private Curso curso;
 
-
+    public Topico(DatosRegistroTopico datos, Usuario autor, Curso curso){
+        this.titulo = datos.titulo();
+        this.mensaje = datos.mensaje();
+        this.fecha_creacion = datos.fecha_creacion();
+        this.status = datos.status();
+        this.autor = autor;
+        this.curso = curso;
+    }
 }
