@@ -35,11 +35,21 @@ public class TopicoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DatosDetalleTopico>> listar(@PageableDefault(page = 0, size = 10,sort={"titulo"} )
-                                                           Pageable pageable){
-        var page = registroTopico.findAll(pageable).map(DatosDetalleTopico::new);
+    public ResponseEntity<Page<DatosDetalleTopico>> listar(
+            @RequestParam(required = false) String curso,
+            @RequestParam(required = false) Integer year,
+            @PageableDefault(page = 0, size = 10,sort={"titulo"} ) Pageable pageable){
+
+        if(curso == null && year == null){
+            var page = registroTopico.findAll(pageable).map(DatosDetalleTopico::new);
+            return ResponseEntity.ok(page);
+        }
+
+        var page = registroTopico.buscarPorCursoDeYear(curso, year, pageable).map(DatosDetalleTopico::new);
         return ResponseEntity.ok(page);
+
     }
+
 
     @GetMapping("{id}")
     public ResponseEntity detallar(@PathVariable Long id){
