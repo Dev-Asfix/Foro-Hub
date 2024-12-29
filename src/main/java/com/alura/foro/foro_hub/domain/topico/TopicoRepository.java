@@ -12,9 +12,13 @@ public interface TopicoRepository extends JpaRepository<Topico, Long> {
 
 
     @Query("SELECT t FROM topico t WHERE " +
-            "(:curso IS NULL OR t.curso.nombre = :curso) AND " +
+            "(:curso IS NULL OR t.curso.nombre LIKE %:curso%) AND " +
             "(:year IS NULL OR YEAR(t.fecha_creacion) = :year)")
     Page<Topico> buscarPorCursoDeYear(@Param("curso") String curso,
                                       @Param("year") Integer year,
                                       Pageable pageable);
+
+//    @Query("SELECT t FROM topico t WHERE " +
+//            "(:curso IS NULL OR t.curso.nombre = :curso) AND " +
+//            "(:year IS NULL OR YEAR(t.fecha_creacion) = :year)")
 }
