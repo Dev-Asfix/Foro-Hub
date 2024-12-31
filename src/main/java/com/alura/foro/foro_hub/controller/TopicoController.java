@@ -90,7 +90,12 @@ public class TopicoController {
     @DeleteMapping("/{id}")
     public ResponseEntity eliminar(@PathVariable Long id){
         var topico = registroTopico.findById(id);
-        registroTopico.delete(topico);
+        if(topico.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No se encontró un tópico con el ID proporcionado");
+        }
+        registroTopico.delete(topico.get());
+        return ResponseEntity.noContent().build();
 
     }
 }
