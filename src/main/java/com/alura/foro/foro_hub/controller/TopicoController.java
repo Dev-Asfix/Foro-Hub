@@ -1,5 +1,6 @@
 package com.alura.foro.foro_hub.controller;
 
+import com.alura.foro.foro_hub.domain.topico.DatosActualizarTopico;
 import com.alura.foro.foro_hub.domain.topico.DatosDetalleTopico;
 import com.alura.foro.foro_hub.domain.topico.DatosRegistroTopico;
 import com.alura.foro.foro_hub.domain.topico.validacion.RegistroDeTopicos;
@@ -62,5 +63,29 @@ public class TopicoController {
 
 
         return ResponseEntity.ok(new DatosDetalleTopico(topico));
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity actualizar(@RequestBody @Valid DatosActualizarTopico datos , @PathVariable Long id){
+        var topicoOptional = registroTopico.findById(id);
+
+        if(topicoOptional.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró un tópico con el id proporcionado");
+        }
+
+        var topico = topicoOptional.get();
+
+        if(datos.titulo() != null){
+            topico.setTitulo(datos.titulo());
+        }
+        if(datos.mensaje() != null){
+            topico.setMensaje(datos.mensaje());
+        }
+        if(datos.status() != null){
+            topico.setMensaje(datos.mensaje());
+        }
+        return ResponseEntity.ok(new DatosDetalleTopico(topico));
+
     }
 }
