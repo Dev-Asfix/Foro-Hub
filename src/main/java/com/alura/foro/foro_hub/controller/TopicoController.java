@@ -1,11 +1,9 @@
 package com.alura.foro.foro_hub.controller;
 
 import com.alura.foro.foro_hub.domain.curso.CursoRepository;
-import com.alura.foro.foro_hub.domain.topico.DatosActualizarTopico;
-import com.alura.foro.foro_hub.domain.topico.DatosDetalleTopico;
-import com.alura.foro.foro_hub.domain.topico.DatosRegistroTopico;
+import com.alura.foro.foro_hub.domain.topico.*;
+import com.alura.foro.foro_hub.domain.topico.validacion.ActualizacionDeTopicos;
 import com.alura.foro.foro_hub.domain.topico.validacion.RegistroDeTopicos;
-import com.alura.foro.foro_hub.domain.topico.TopicoRepository;
 import com.alura.foro.foro_hub.domain.usuario.UsuarioRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +31,9 @@ public class TopicoController {
 
     @Autowired
     private CursoRepository cursoRepository;
+
+    @Autowired
+    private ActualizacionDeTopicos actualizacionDeTopicos;
 
     @PostMapping
     @Transactional
@@ -76,35 +77,20 @@ public class TopicoController {
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity actualizar(@RequestBody @Valid DatosActualizarTopico datos , @PathVariable Long id){
-        var topicoOptional = registroTopico.findById(id);
 
-        if(topicoOptional.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró un tópico con el id proporcionado");
-        }
-
-        var topico = topicoOptional.get();
-
-        if(datos.titulo() != null){
-            topico.setTitulo(datos.titulo());
-        }
-        if(datos.mensaje() != null){
-            topico.setMensaje(datos.mensaje());
-        }
-        if(datos.status() != null){
-            topico.setStatus(datos.status());
-        }
-        if(datos.autor() != null){
-            var autor = usuarioRepository.findById(datos.autor())
-                    .orElseThrow(() -> new RuntimeException("Autor No encontrado"));
-            topico.setAutor(autor);
+        try{
+            var detalleTopico = actualizacionDeTopicos.actualizar(id, datos);
+            return ResponseEntity.ok(detalleTopico);
+        } catch (RuntimeException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
 
-        if(datos.curso() != null){
-            var curso = cursoRepository.findById(datos.curso())
-                    .orElseThrow(() -> new RuntimeException("Curso no encontrado"));
-            topico.setCurso(curso);
-        }
-        return ResponseEntity.ok(new DatosDetalleTopico(topico));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity eliminar(@PathVariable Long id){
+        var topico = registroTopico.findById(id);
+        registroTopico.delete(topico);
 
     }
 }
