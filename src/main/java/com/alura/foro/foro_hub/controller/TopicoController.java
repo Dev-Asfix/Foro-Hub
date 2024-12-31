@@ -1,10 +1,12 @@
 package com.alura.foro.foro_hub.controller;
 
+import com.alura.foro.foro_hub.domain.curso.CursoRepository;
 import com.alura.foro.foro_hub.domain.topico.DatosActualizarTopico;
 import com.alura.foro.foro_hub.domain.topico.DatosDetalleTopico;
 import com.alura.foro.foro_hub.domain.topico.DatosRegistroTopico;
 import com.alura.foro.foro_hub.domain.topico.validacion.RegistroDeTopicos;
 import com.alura.foro.foro_hub.domain.topico.TopicoRepository;
+import com.alura.foro.foro_hub.domain.usuario.UsuarioRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,6 +27,12 @@ public class TopicoController {
 
     @Autowired
     private TopicoRepository registroTopico;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private CursoRepository cursoRepository;
 
     @PostMapping
     @Transactional
@@ -83,7 +91,18 @@ public class TopicoController {
             topico.setMensaje(datos.mensaje());
         }
         if(datos.status() != null){
-            topico.setMensaje(datos.mensaje());
+            topico.setStatus(datos.status());
+        }
+        if(datos.autor() != null){
+            var autor = usuarioRepository.findById(datos.autor())
+                    .orElseThrow(() -> new RuntimeException("Autor No encontrado"));
+            topico.setAutor(autor);
+        }
+
+        if(datos.curso() != null){
+            var curso = cursoRepository.findById(datos.curso())
+                    .orElseThrow(() -> new RuntimeException("Curso no encontrado"));
+            topico.setCurso(curso);
         }
         return ResponseEntity.ok(new DatosDetalleTopico(topico));
 
