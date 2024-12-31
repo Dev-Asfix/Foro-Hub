@@ -94,6 +94,7 @@ public class TopicoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body("No se encontró un tópico con el ID proporcionado");
         }
+
         registroTopico.delete(topico.get());
         return ResponseEntity.noContent().build();
 
