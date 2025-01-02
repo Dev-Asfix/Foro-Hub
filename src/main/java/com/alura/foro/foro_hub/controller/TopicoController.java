@@ -45,7 +45,7 @@ public class TopicoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DatosDetalleTopico>> listar(
+    public ResponseEntity<Page <DatosDetalleTopico>> listar(
             @RequestParam(required = false) String curso,
             @RequestParam(required = false) Integer year,
             @PageableDefault(page = 0, size = 10,sort={"titulo"} ) Pageable pageable){
