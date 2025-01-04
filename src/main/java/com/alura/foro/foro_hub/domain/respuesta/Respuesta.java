@@ -33,4 +33,51 @@ public class Respuesta {
 
     private boolean solucion;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public Topico getTopico() {
+        return topico;
+    }
+
+    public void setTopico(Topico topico) {
+        this.topico = topico;
+    }
+
+    public LocalDateTime getFecha_creacion() {
+        return fecha_creacion;
+    }
+
+    public void setFecha_creacion(LocalDateTime fecha_creacion) {
+        this.fecha_creacion = fecha_creacion;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public boolean isSolucion() {
+        return solucion;
+    }
+
+    public void setSolucion(boolean solucion) {
+        this.solucion = solucion;
+    }
 }
