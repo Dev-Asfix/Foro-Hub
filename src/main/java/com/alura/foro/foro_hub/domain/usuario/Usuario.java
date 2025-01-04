@@ -24,7 +24,8 @@ public class Usuario implements UserDetails {
     private Long id;
 
     private String nombre;
-    private String correo_electronico;
+    @Column(name = "correo_electronico")
+    private String correoElectronico;
 
     private String contrasena;
 
@@ -38,7 +39,7 @@ public class Usuario implements UserDetails {
 
     public Usuario(String nombre, String correo_electronico, String contrasena, Perfil perfil) {
         this.nombre = nombre;
-        this.correo_electronico = correo_electronico;
+        this.correoElectronico = correo_electronico;
         this.contrasena = contrasena;
         this.perfil = perfil;
     }
@@ -60,11 +61,11 @@ public class Usuario implements UserDetails {
     }
 
     public String getCorreo_electronico() {
-        return correo_electronico;
+        return correoElectronico;
     }
 
     public void setCorreo_electronico(String correo_electronico) {
-        this.correo_electronico = correo_electronico;
+        this.correoElectronico = correo_electronico;
     }
 
     public String getContrasena() {
@@ -95,7 +96,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getUsername() {
-        return correo_electronico;
+        return correoElectronico;
     }
 
     @Override
