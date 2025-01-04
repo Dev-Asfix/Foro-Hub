@@ -33,6 +33,15 @@ public class Respuesta {
 
     private boolean solucion;
 
+    public Respuesta(DatosRegistroRespuesta datos ,Topico datosTopico, Usuario datosUsuario){
+        this.mensaje = datos.mensaje();
+        this.topico = datosTopico;
+
+        this.fecha_creacion = LocalDateTime.now();
+        this.usuario = datosUsuario;
+        this.solucion = false;
+    }
+
     public Long getId() {
         return id;
     }
