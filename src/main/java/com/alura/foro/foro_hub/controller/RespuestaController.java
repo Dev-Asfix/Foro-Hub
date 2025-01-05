@@ -2,6 +2,7 @@ package com.alura.foro.foro_hub.controller;
 
 import com.alura.foro.foro_hub.domain.respuesta.DatosDetalleRespuesta;
 import com.alura.foro.foro_hub.domain.respuesta.DatosRegistroRespuesta;
+import com.alura.foro.foro_hub.domain.respuesta.Respuesta;
 import com.alura.foro.foro_hub.domain.respuesta.RespuestaRepository;
 import com.alura.foro.foro_hub.domain.respuesta.validacion.RegistroDeRespuestas;
 import jakarta.validation.Valid;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +43,31 @@ public class RespuestaController {
     public ResponseEntity<Page<DatosDetalleRespuesta>> listar(@PageableDefault(size = 1)Pageable pageable){
 
         return ResponseEntity.ok(respuestaRepository.findAll(pageable).map(DatosDetalleRespuesta::new));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity buscarRespuesta(@PathVariable Long id){
+        var respuestaOptional = respuestaRepository.findById(id);
+        if(respuestaOptional.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("NO se encontro una respuesta con ese ID");
+        }
+        var respuesta = respuestaOptional.get();
+        return ResponseEntity.ok(new DatosDetalleRespuesta(respuesta));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity eliminar(@PathVariable Long id){
+        var respuestaOptional = respuestaRepository.findById(id);
+        if(respuestaOptional.isEmpty()){
+            //            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró un tópico con el ID proporcionado.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontro una Respuesta con ese id");
+        }
+
+        var respuesta = respuestaOptional.get();
+        respuestaRepository.delete(respuesta);
+        return ResponseEntity.noContent().build();
+
     }
 
 
