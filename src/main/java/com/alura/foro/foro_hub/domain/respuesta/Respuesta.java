@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Table(name = "respuestas")
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of= "id")
 public class Respuesta {
@@ -32,6 +32,10 @@ public class Respuesta {
     private Usuario usuario;
 
     private boolean solucion;
+
+    public Respuesta(){
+
+    }
 
     public Respuesta(DatosRegistroRespuesta datos ,Topico datosTopico, Usuario datosUsuario){
         this.mensaje = datos.mensaje();
