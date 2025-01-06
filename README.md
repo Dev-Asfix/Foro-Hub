@@ -1,4 +1,15 @@
-# 🌐 Foro Hub - Backend Challenge
+  <h2>
+    🌐 Foro Hub - Backend Challenge
+  </h2>
+</div>
+
+<p align="center">
+    <a href="https://github.com/Dev-Asfix/Foro-Hub/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Dev-Asfix/Foro-Hub?style=for-the-badge" alt="License"></a>
+    <a href="https://github.com/Dev-Asfix/Foro-Hub/issues"><img src="https://img.shields.io/github/issues/Dev-Asfix/Foro-Hub?style=for-the-badge" alt="Open Issues"></a>
+    <a href="https://github.com/Dev-Asfix/Foro-Hub/graphs/contributors"><img src="https://img.shields.io/github/contributors/Dev-Asfix/Foro-Hub?style=for-the-badge" alt="Contributors"></a>
+</p>
+
+
 
 ## 📜 Descripción
 
