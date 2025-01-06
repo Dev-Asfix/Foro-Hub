@@ -14,29 +14,24 @@
 
 
 
-## 📜 Descripción
+<div align="center">
+  <h2>
+    📜 Descripción
+  </h2>
+</div>
 
-**Foro Hub** es un proyecto de backend desarrollado con **Spring Boot** y **Java** como parte del **Challenge Foro Hub** del curso de **Practicando Spring Framework** de **Alura LaTAM**. Este proyecto ofrece una **API REST** con operaciones CRUD (GET, POST, PUT, DELETE) para gestionar foros de discusión. La seguridad de la aplicación está gestionada utilizando **API Key**, **Spring Security** y **JWT (JSON Web Tokens)**, asegurando la autenticación y autorización de las solicitudes. Además, la persistencia de datos se maneja de manera eficiente utilizando **JPA con Spring Data**.
+<p align="center">
+  <strong>Foro Hub</strong> es un proyecto de backend desarrollado con <strong>Spring Boot</strong> y <strong>Java</strong> como parte del <strong>Challenge Foro Hub</strong> del curso de <strong>Practicando Spring Framework</strong> de <strong>Alura LaTAM</strong>. Este proyecto ofrece una <strong>API REST</strong> con operaciones CRUD (GET, POST, PUT, DELETE) para gestionar foros de discusión. La seguridad de la aplicación está gestionada utilizando <strong>API Key</strong>, <strong>Spring Security</strong> y <strong>JWT (JSON Web Tokens)</strong>, asegurando la autenticación y autorización de las solicitudes. Además, la persistencia de datos se maneja de manera eficiente utilizando <strong>JPA con Spring Data</strong>.
+</p>
+<br>
+
+
 
 🔒 **Seguridad avanzada**  
 📊 **Persistencia con JPA**  
 🚀 **Escalable y fácil de usar**  
 
-## 🛠️ Características
 
-- **API REST** con operaciones CRUD:
-  - **GET**: Obtener todos los Topicos / Respuestas / Usuaruios / Perfiles / etc.
-  - **POST**: Crear.
-  - **PUT**: Actualizar.
-  - **DELETE**: Eliminar.
-  
-- **Seguridad** mediante **API Key**, **Spring Security** y **JWT**.
-- **Persistencia de datos** con **JPA** y **Spring Data**.
-- **Migraciones de base de datos** con **Flyway**.
-- **Documentación automática** de la API con **Springdoc OpenAPI**.
-
-
----
 
 <div align="center">
 <h2>
@@ -68,6 +63,25 @@
 - **Flyway** (Migraciones de base de datos)
 - **MySQL** (Base de datos relacional)
 - **Springdoc OpenAPI** (Documentación de API)
+
+
+---
+
+## 🛠️ Características
+
+- **API REST** con operaciones CRUD:
+  - **GET**: Obtener todos los Topicos / Respuestas / Usuaruios / Perfiles / etc.
+  - **POST**: Crear.
+  - **PUT**: Actualizar.
+  - **DELETE**: Eliminar.
+  
+- **Seguridad** mediante **API Key**, **Spring Security** y **JWT**.
+- **Persistencia de datos** con **JPA** y **Spring Data**.
+- **Migraciones de base de datos** con **Flyway**.
+- **Documentación automática** de la API con **Springdoc OpenAPI**.
+
+
+---
 
 ## 🔧 Requisitos
 
