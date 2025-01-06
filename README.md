@@ -1,3 +1,4 @@
+<div align="center>
   <h2>
     🌐 Foro Hub - Backend Challenge
   </h2>
