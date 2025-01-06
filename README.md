@@ -40,7 +40,7 @@
 
 <div align="center">
 <h2>
-**🔧 Tecnologías Usadas**
+🔧 Tecnologías Usadas
 </h2>
 </div>
 
