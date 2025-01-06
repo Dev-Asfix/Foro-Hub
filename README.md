@@ -1,4 +1,6 @@
-<div align="center>
+
+<div align="center">
+  <img src="./media/Oracle.png" alt="Logo" height="100">
   <h2>
     🌐 Foro Hub - Backend Challenge
   </h2>
