@@ -1,0 +1,80 @@
+# 🌐 Foro Hub - Backend Challenge
+
+## 📜 Descripción
+
+**Foro Hub** es un proyecto de backend desarrollado con **Spring Boot** y **Java** como parte del **Challenge Foro Hub** del curso de **Practicando Spring Framework** de **Alura LaTAM**. Este proyecto ofrece una **API REST** con operaciones CRUD (GET, POST, PUT, DELETE) para gestionar foros de discusión. La seguridad de la aplicación está gestionada utilizando **API Key**, **Spring Security** y **JWT (JSON Web Tokens)**, asegurando la autenticación y autorización de las solicitudes. Además, la persistencia de datos se maneja de manera eficiente utilizando **JPA con Spring Data**.
+
+🔒 **Seguridad avanzada**  
+📊 **Persistencia con JPA**  
+🚀 **Escalable y fácil de usar**  
+
+## 🛠️ Características
+
+- **API REST** con operaciones CRUD:
+  - **GET**: Obtener todos los Topicos / Respuestas / Usuaruios / Perfiles / etc.
+  - **POST**: Crear.
+  - **PUT**: Actualizar.
+  - **DELETE**: Eliminar.
+  
+- **Seguridad** mediante **API Key**, **Spring Security** y **JWT**.
+- **Persistencia de datos** con **JPA** y **Spring Data**.
+- **Migraciones de base de datos** con **Flyway**.
+- **Documentación automática** de la API con **Springdoc OpenAPI**.
+
+## 🖥️ Tecnologías
+
+- **Java 17** o superior
+- **Spring Boot 3.x**
+- **Spring Security** (Autenticación y Autorización)
+- **Spring Data JPA** (Gestión de base de datos)
+- **JWT (Java JWT)** (Tokens de seguridad)
+- **Flyway** (Migraciones de base de datos)
+- **MySQL** (Base de datos relacional)
+- **Springdoc OpenAPI** (Documentación de API)
+
+## 🔧 Requisitos
+
+Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes programas:
+
+- **JDK 17** o superior
+- **MySQL** (con base de datos configurada)
+- **Maven** o **Gradle** (según tu preferencia)
+- **IDE** como **IntelliJ IDEA** o **Eclipse** (opcional)
+
+## 📥 Instalación
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/Dev-Asfix/Foro-Hub.git
+   
+2. **Configura tu base de datos MySQL**:
+   - Crea una base de datos para el proyecto.
+   - Actualiza las credenciales de la base de datos en el archivo `application.properties` o `application.yml`.
+
+3. **Ejecuta las migraciones de Flyway** (si es necesario).
+
+4. **Ejecuta la aplicación desde tu IDE o utilizando Maven/Gradle**:
+
+   **Con Maven**:
+
+   ```bash
+   mvn spring-boot:run
+   
+  **Con Gradle:**
+  
+  ```bash
+  gradle bootRun
+```
+
+## 📜 Licencia
+
+Este proyecto está bajo la **Licencia MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## 📬 Contacto
+
+Si tienes alguna pregunta o deseas saber más sobre el proyecto, no dudes en contactarme a través de:
+
+- **Correo electrónico**: [rosasramirez753@gmail.com](Email:rosasramirez753@gmail.com)
