@@ -20,7 +20,7 @@
   </h2>
 </div>
 
-<p align="center">
+<p >
   <strong>Foro Hub</strong> es un proyecto de backend desarrollado con <strong>Spring Boot</strong> y <strong>Java</strong> como parte del <strong>Challenge Foro Hub</strong> del curso de <strong>Practicando Spring Framework</strong> de <strong>Alura LaTAM</strong>. Este proyecto ofrece una <strong>API REST</strong> con operaciones CRUD (GET, POST, PUT, DELETE) para gestionar foros de discusión. La seguridad de la aplicación está gestionada utilizando <strong>API Key</strong>, <strong>Spring Security</strong> y <strong>JWT (JSON Web Tokens)</strong>, asegurando la autenticación y autorización de las solicitudes. Además, la persistencia de datos se maneja de manera eficiente utilizando <strong>JPA con Spring Data</strong>.
 </p>
 <br>
