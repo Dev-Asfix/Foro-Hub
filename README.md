@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="./media/Oracle.png" alt="Logo" height="100">
+  <img src="./src/main/resources/img/Badge-Spring.png" alt="Logo" height="100">
   <h2>
     🌐 Foro Hub - Backend Challenge
   </h2>
